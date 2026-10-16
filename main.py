@@ -1,16 +1,17 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import pypdf
+import sys
 
+inputs = sys.argv[1:]
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def combiner(pdf_list):
+    merger = pypdf.PdfWriter()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    for super_file in pdf_list:
+        merger.append(super_file)
+
+    merger.write("super_file.pdf")
+    merger.close()
+
+combiner(inputs)
